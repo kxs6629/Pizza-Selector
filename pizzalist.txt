@@ -1,0 +1,3 @@
+Schades,845-446-2626,http://www.schadesrestaurant.com/menu?menuName=pizza
+Tony's Pizza,845-446-4000
+West Point Pizza,845-446-5544,http://www.wppizza.net/
