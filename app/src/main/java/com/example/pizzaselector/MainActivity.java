@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private ArrayList<PizzaPlace> storeList = new ArrayList<PizzaPlace>();
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Make the button do something!
-                String pickedStore = storeList.get(1).getName();
+                String pickedStore = selectRandom();
                 Toast.makeText(getApplicationContext(),pickedStore,Toast.LENGTH_SHORT).show();
             }
         });
@@ -65,5 +66,10 @@ public class MainActivity extends AppCompatActivity {
             System.out.println("IOException");
             ioe.printStackTrace();
         }
+    }
+
+    public String selectRandom(){
+        Random rand = new Random();
+        return storeList.get(rand.nextInt(storeList.size())).toString();
     }
 }
