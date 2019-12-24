@@ -1,10 +1,14 @@
 package com.example.pizzaselector;
 
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class PizzaPlace {
     private String name;
     private String phoneNum;
     private String website;
+    private URL siteLink;
 
     /**
      * Constructor for PizzaPlace that accepts all
@@ -55,28 +59,17 @@ public class PizzaPlace {
         return website;
     }
 
-    /**
-     * Sets the name of the pizza place
-     * @param _newName new name to be entered
-     */
-    public void setName(String _newName){
-        this.name = _newName;
+    public void setURL(String _URL) {
+        try {
+            siteLink = new URL(getWebSite());
+        }catch(MalformedURLException MURLE){
+            System.out.println("Invalid link");
+            MURLE.printStackTrace();
+        }
     }
 
-    /**
-     * Sets the phone number of the pizza place
-     * @param _newPhoneNum new phone number for the pizza place
-     */
-    public void setPhoneNum(String _newPhoneNum){
-        this.phoneNum = _newPhoneNum;
-    }
-
-    /**
-     * Sets the website of the pizza place
-     * @param _newWebsite new website for the pizza place
-     */
-    public void setWebsite(String _newWebsite){
-        this.website = _newWebsite;
+    public URL getURL(){
+        return siteLink;
     }
 
     public String toString(){
@@ -84,7 +77,7 @@ public class PizzaPlace {
             String s = "Name: "+getName()+" Phone: "+getPhoneNum();
             return s;
         }
-        String s= "Name: "+getName()+" Phone: "+getPhoneNum()+" Website: "+getWebSite();
+        String s = "Name: " + getName() + "\n Phone: " + getPhoneNum() + "\n Website: " + getWebSite();
         return s;
     }
 

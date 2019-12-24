@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.awt.font.TextAttribute;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,7 +21,8 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
     private ArrayList<PizzaPlace> storeList = new ArrayList<PizzaPlace>();
     private BufferedReader br;
-
+    private TextView displayText;
+    private PizzaPlace pp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,13 +31,16 @@ public class MainActivity extends AppCompatActivity {
         br = new BufferedReader(new InputStreamReader(is));
         createList(br);
 
+        displayText = findViewById(R.id.DisplayTextArea);
         Button pickBtn = findViewById(R.id.startPick);
         pickBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Make the button do something!
-                String pickedStore = selectRandom();
-                Toast.makeText(getApplicationContext(),pickedStore,Toast.LENGTH_SHORT).show();
+                //Inner class that selects a random pizza place for the user 
+                selectRandom();
+                String pickedStore = pp.toString();
+                displayText.setText(pickedStore);
+                Toast.makeText(getApplicationContext(),"Selected a store!",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -68,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public String selectRandom(){
+    public void selectRandom(){
         Random rand = new Random();
-        return storeList.get(rand.nextInt(storeList.size())).toString();
+        pp = storeList.get(rand.nextInt(storeList.size()));
     }
 }

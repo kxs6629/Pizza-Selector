@@ -1,3 +1,7 @@
 Schades,845-446-2626,http://www.schadesrestaurant.com/menu?menuName=pizza
 Tony's Pizza,845-446-4000
 West Point Pizza,845-446-5544,http://www.wppizza.net/
+Amore Pizzeria,845-446-7542,places.singleplatform.com
+Brother's Pizza,845-446-4988,brotherspizzahf.com
+Bear Mountain Pizza,845-977-8003
+Depalo's Pizza,845-446-7437

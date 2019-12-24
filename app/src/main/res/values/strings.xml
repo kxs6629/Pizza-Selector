@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Pizza Selector</string>
     <string name="pick_a_place">Pick a Place!</string>
+    <string name="welcomeMsg">Welcome! Press the button below to pick a shop.</string>
 </resources>
